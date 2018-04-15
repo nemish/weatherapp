@@ -1,0 +1,86 @@
+@font-face
+  font-family Roboto
+  font-style normal
+  src url(https://fonts.googleapis.com/css?family=Roboto)
+
+
+html
+body
+#root
+  height 100%
+  margin 0
+  padding 0
+  box-sizing border-box
+
+
+.app
+  font-family Roboto, sans-serif
+  height 100%
+  background #FC7A6E
+  display flex
+  color #555
+
+.container
+  flex 1
+  margin auto
+  max-width 600px
+  background #fff
+  padding 20px
+  border-radius 1px
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.6);
+
+
+.app-header
+  background-color #222
+  height 150px
+  padding 20px
+  color white
+
+.app-title
+  font-size 1.5em
+  font-weight bold
+
+header
+  display flex
+
+  & > div
+    display flex
+    flex 1
+    align-items center
+
+    &:first-child
+      justify-content flex-start
+
+    &:last-child
+      justify-content flex-end
+
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.5em;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+
+@media (max-width: 650px)
+  .container
+    max-width 80%

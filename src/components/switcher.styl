@@ -1,0 +1,92 @@
+total_width = 60px
+slider_width = 20px
+outer_height = 24px
+height = outer_height - 8px
+translate_dimension = total_width - slider_width - 8px
+// translate_dimension = total_width - slider_width -
+/* The switch - the box around the slider */
+.switch
+  position relative
+  width 60px
+  height outer_height
+
+
+/* Hide default HTML checkbox */
+.switch
+  input
+    display none
+
+.slider-text
+  position absolute
+  top 0
+  left 10px
+  right 10px
+  bottom 0
+  display flex
+  align-items center
+  font-size height - 4px
+  color #fff
+  transition .4s
+
+  &--left
+    justify-content flex-start
+    opacity 0
+
+    input:checked ~ &
+      opacity 1
+
+  &--right
+    opacity 1
+    justify-content flex-end
+
+    input:checked ~ &
+      opacity 0
+
+
+
+/* The slider */
+.slider
+  position absolute
+  cursor pointer
+  top 0
+  left 0
+  right 0
+  bottom 0
+  background-color #bbb
+  -webkit-transition .4s
+  transition .4s
+
+
+.slider:before
+  position absolute
+  content ""
+  height height
+  width slider_width
+  left 4px
+  bottom 4px
+  background-color white
+  -webkit-transition .4s
+  transition .4s
+
+
+input:checked + .slider
+  background-color #2196F3
+
+
+input:focus + .slider
+  box-shadow 0 0 1px #2196F3
+
+
+input:checked + .slider:before
+  -webkit-transform translateX(translate_dimension)
+  -ms-transform translateX(translate_dimension)
+  transform translateX(translate_dimension)
+
+
+/* Rounded sliders */
+.slider.round
+  border-radius outer_height
+
+
+.slider.round:before
+  border-radius height
