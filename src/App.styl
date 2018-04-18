@@ -1,7 +1,8 @@
 @font-face
   font-family Roboto
-  font-style normal
   src url(https://fonts.googleapis.com/css?family=Roboto)
+
+@import './assets/css/weather-icons.css'
 
 
 html
@@ -21,66 +22,124 @@ body
   color #555
 
 .container
+  display flex
   flex 1
   margin auto
   max-width 600px
+  min-height 300px
   background #fff
   padding 20px
   border-radius 1px
-  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.6);
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.6)
 
 
-.app-header
-  background-color #222
-  height 150px
-  padding 20px
-  color white
+.margin-top-sm
+  margin-top 10px
+
+.margin-top-lg
+  margin-top 20px
+
+.flex
+  display flex
+
+.flex-align-items-center
+  display flex
+  align-items center
+  justify-content center
+
+.flex-1
+  flex 1
+
+.flex-column
+  display flex
+  flex-direction column
+
+.font-regular
+  font-weight 100
+
+.font-1-5
+  font-size 1.5rem
 
 .app-title
   font-size 1.5em
   font-weight bold
 
-header
-  display flex
-
-  & > div
-    display flex
-    flex 1
-    align-items center
-
-    &:first-child
-      justify-content flex-start
-
-    &:last-child
-      justify-content flex-end
-
-
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 1.5em;  /* Preferred icon size */
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
+.material-icons
+  font-family 'Material Icons'
+  font-weight normal
+  font-style normal
+  font-size 1.5em  /* Preferred icon size */
+  display inline-block
+  line-height 1
+  text-transform none
+  letter-spacing normal
+  word-wrap normal
+  white-space nowrap
+  direction ltr
 
   /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing antialiased
   /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
+  text-rendering optimizeLegibility
 
   /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing grayscale
 
   /* Support for IE. */
-  font-feature-settings: 'liga';
-}
+  font-feature-settings 'liga'
+
+
+.text-center
+  text-align center
+
+.btn
+  display inline-block
+  border 1px solid #FC7A6E
+  background transparent
+  padding 5px 10px
+  border-radius 2px
+  cursor pointer
+
+.pointer
+  cursor pointer
+
+.error
+  color #e54343
 
 
 @media (max-width: 650px)
   .container
     max-width 80%
+
+// spinner styles
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+}
+
+.loader {
+  font-size: 20px;
+  position: relative;
+  border-top: 2px solid rgba(0,0,0, 0.2);
+  border-right: 2px solid rgba(0,0,0, 0.2);
+  border-bottom: 2px solid rgba(0,0,0, 0.2);
+  border-left: 2px solid #ffffff;
+  animation: load8 1.1s infinite linear;
+}
+
+.loader.loader-big {
+  font-size 40px
+}
+
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
