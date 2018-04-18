@@ -1,4 +1,3 @@
-import { store } from '../index';
 import { makeQuery } from './common';
 const BASE_URL = 'http://localhost:3001';
 
@@ -48,11 +47,11 @@ export function createAsyncAction(conf) {
           credentials: 'same-origin'
       }
       let headers = {};
-      if (method == 'post') {
+      if (method === 'post') {
         headers['Content-Type'] = 'application/json; charset=utf-8';
       }
 
-      if (method == 'post') {
+      if (method === 'post') {
         params = {
             ...params,
             method: 'POST',

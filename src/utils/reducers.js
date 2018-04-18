@@ -27,7 +27,7 @@ export const createModalReducer = modalActions => {
 }
 
 
-export const createFetchReducerCallbacks = (event, initialData, dataProcessor) => {
+export const createFetchReducerCallbacks = (event, initialData, dataProcessor, failDataProcessor) => {
     let conf = event;
     if (typeof event === 'string') {
         conf = createAsyncActionsConf(event);
@@ -44,15 +44,19 @@ export const createFetchReducerCallbacks = (event, initialData, dataProcessor) =
             return {...state, loading: false, data};
         },
         [conf.failEvent](state, action) {
-            return {...state, loading: false};
+            const newState =  {...state, loading: false};
+            if (failDataProcessor) {
+                newState.data = failDataProcessor(action.data);
+            }
+            return newState;
         }
     }
 }
 
 
-export const createFetchReducer = ({event, initialData = [], callbacks = {}, dataProcessor = null}) => {
+export const createFetchReducer = ({event, initialData = [], callbacks = {}, dataProcessor = null, failDataProcessor = null}) => {
     return createReducer({loading: false, data: initialData}, {
-        ...createFetchReducerCallbacks(event, initialData, dataProcessor),
+        ...createFetchReducerCallbacks(event, initialData, dataProcessor, failDataProcessor),
         ...callbacks
     });
 }

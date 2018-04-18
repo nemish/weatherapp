@@ -1,9 +1,7 @@
 import { combineReducers } from 'redux';
 import {
     createFetchReducer,
-    createFetchReducerCallbacks,
-    createReducer,
-    createModalReducer
+    createReducer
 } from '../utils/reducers';
 import {
   fetchCitiesActions,
@@ -11,7 +9,8 @@ import {
   SET_CITY
 } from '../actions/cities';
 import {
-  fetchForecastActions
+  fetchForecastActions,
+  TOGGLE_SCALE
 } from '../actions/app';
 
 
@@ -27,13 +26,19 @@ const cities = createFetchReducer({
 });
 
 const forecast = createFetchReducer({
-  event: fetchForecastActions
+  event: fetchForecastActions,
+  failDataProcessor(data) {
+    return {};
+  }
 });
 
 
-const app = createReducer({city: {}}, {
+const app = createReducer({city: {}, scale: 'F'}, {
   [SET_CITY](state, action) {
-    return {...state, city: action.data}
+    return {...state, city: action.data};
+  },
+  [TOGGLE_SCALE](state, action) {
+    return {...state, scale: state.scale === 'F' ? 'C' : 'F'};
   }
 })
 

@@ -18,7 +18,7 @@ app.get('/cities/', function (req, res) {
     res.setHeader('Content-Type', 'application/json');
     let items;
     if (name) {
-      items = cities.filter(city => city.name.indexOf(name) > -1)
+      items = cities.filter(city => city.name.toLowerCase().indexOf(name) > -1)
     } else if (latitude && longitude) {
       items = cities.sort((city, nextCity) => {
         const firstDelta = Math.abs(city.lat - latitude) + Math.abs(city.lng - longitude);
