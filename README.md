@@ -1,9 +1,8 @@
 # Weather App example
 
-Built on top of [create react app](https://github.com/facebook/create-react-app)
-Using [openweathermap api](https://openweathermap.org)
+Built on top of [create react app](https://github.com/facebook/create-react-app). Utilizing [openweathermap api](https://openweathermap.org) as data source.
 
-## Installation backend
+## Installation
 
 ```shell
 $ git clone https://github.com/nemish/weatherapp.git
